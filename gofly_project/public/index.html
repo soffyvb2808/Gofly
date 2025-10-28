@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>GoFly - Tienda de Viajes</title>
+  <title>GoFly - Viajes</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Poppins:wght@600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/styles.css" />
 </head>
@@ -12,7 +12,7 @@
     <div class="logo"><span class="logo-text">GoFly</span><span class="logo-plane">✈</span></div>
     <nav class="nav">
       <button data-page="home" class="nav-btn">Inicio</button>
-      <button data-page="productos" class="nav-btn">Destinos</button>
+      <button data-page="destinos" class="nav-btn">Destinos</button>
       <button data-page="planes" class="nav-btn">Planes</button>
       <button data-page="usuarios" class="nav-btn">Usuarios</button>
       <div class="spacer"></div>
@@ -27,65 +27,39 @@
       <div class="hero">
         <h1>Viaja con GoFly</h1>
         <p>Explora ciudades y planes familiares — descubre experiencias únicas</p>
-      </div>
-      <div class="features">
-        <div class="card small">
-          <h3>Destinos</h3>
-          <p>Ciudades y países destacados</p>
-        </div>
-        <div class="card small">
-          <h3>Planes</h3>
-          <p>Paquetes turísticos con precios claros</p>
-        </div>
-        <div class="card small">
-          <h3>Opiniones</h3>
-          <p>Calificaciones de 1 a 5 estrellas</p>
+        <div class="cta">
+          <button class="btn primary" id="explore-btn">Explorar destinos</button>
         </div>
       </div>
     </section>
 
-    <!-- PRODUCTOS / DESTINOS -->
-    <section id="page-productos" class="page hidden">
+    <!-- DESTINOS -->
+    <section id="page-destinos" class="page hidden">
       <div class="page-header">
-        <h2>Destinos</h2>
-        <button id="btn-new-product" class="btn">+ Nuevo destino</button>
+        <h2>Destinos por País</h2>
       </div>
-      <div id="productos-list" class="grid"></div>
-
-      <!-- Form modal simple -->
-      <div id="modal-product" class="modal hidden">
-        <div class="modal-content">
-          <h3 id="modal-title">Nuevo destino</h3>
-          <form id="form-product">
-            <input type="hidden" id="prod-id" />
-            <label>Nombre<input id="prod-nombre" required/></label>
-            <label>País<input id="prod-pais" /></label>
-            <label>Ciudad<input id="prod-ciudad" /></label>
-            <label>Precio<input id="prod-precio" type="number" /></label>
-            <label>Imagen (ruta en /assets/images)<input id="prod-imagen" /></label>
-            <label>Descripción<textarea id="prod-descripcion"></textarea></label>
-            <div class="modal-actions">
-              <button type="submit" class="btn primary">Guardar</button>
-              <button type="button" id="btn-cancel" class="btn">Cancelar</button>
-            </div>
-          </form>
-        </div>
-      </div>
+      <div id="destinos-list" class="grid"></div>
     </section>
 
-    <!-- PLANES (detalle por producto) -->
+    <!-- PLANES -->
     <section id="page-planes" class="page hidden">
-      <h2>Planes</h2>
+      <div class="page-header">
+        <h2>Planes y Lugares Turísticos</h2>
+        <div id="planes-subtitle" class="small-muted">Selecciona un país para ver sus planes</div>
+      </div>
       <div id="planes-list" class="grid"></div>
     </section>
 
     <!-- USUARIOS -->
     <section id="page-usuarios" class="page hidden">
-      <h2>Usuarios</h2>
+      <div class="page-header">
+        <h2>Usuarios</h2>
+        <button id="btn-new-user" class="btn">+ Nuevo usuario</button>
+      </div>
       <div id="usuarios-list" class="grid"></div>
     </section>
 
-    <!-- LOGIN / REGISTER -->
+    <!-- LOGIN / REGISTER (modal) -->
     <section id="page-login" class="page hidden">
       <div class="auth-card">
         <h2>Iniciar sesión</h2>
@@ -109,6 +83,7 @@
         </form>
       </div>
     </section>
+
   </main>
 
   <footer class="site-footer">
