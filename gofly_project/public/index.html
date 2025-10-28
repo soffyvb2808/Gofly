@@ -15,60 +15,81 @@
       <button data-page="destinos" class="nav-btn">Destinos</button>
       <button data-page="planes" class="nav-btn">Planes</button>
       <button data-page="usuarios" class="nav-btn">Usuarios</button>
-      <div style="flex:1"></div>
+      <div class="spacer"></div>
       <button id="btn-login" class="nav-btn">Iniciar sesión</button>
       <button id="btn-logout" class="nav-btn hidden">Cerrar sesión</button>
     </nav>
   </header>
 
   <main class="container">
+    <!-- HOME -->
     <section id="page-home" class="page">
-      <div style="padding:28px;background:#fff;border-radius:12px">
-        <h1 style="font-family:Poppins, sans-serif">Viaja con GoFly</h1>
-        <p>Explora ciudades y planes familiares</p>
+      <div class="hero">
+        <h1>Viaja con GoFly</h1>
+        <p>Explora ciudades y planes familiares — descubre experiencias únicas</p>
+        <div class="cta">
+          <button class="btn primary" id="explore-btn">Explorar destinos</button>
+        </div>
       </div>
     </section>
 
-    <section id="page-destinos" class="page hidden"><h2>Destinos</h2><div id="destinos-list"></div></section>
-    <section id="page-planes" class="page hidden"><h2>Planes</h2><div id="planes-list"></div></section>
-    <section id="page-usuarios" class="page hidden"><h2>Usuarios</h2><div id="usuarios-list"></div></section>
+    <!-- DESTINOS -->
+    <section id="page-destinos" class="page hidden">
+      <div class="page-header">
+        <h2>Destinos por País</h2>
+      </div>
+      <div id="destinos-list" class="grid"></div>
+    </section>
 
-    <!-- AUTH: login/register styled like design -->
+    <!-- PLANES -->
+    <section id="page-planes" class="page hidden">
+      <div class="page-header">
+        <h2>Planes y Lugares Turísticos</h2>
+        <div id="planes-subtitle" class="small-muted">Selecciona un país para ver sus planes</div>
+      </div>
+      <div id="planes-list" class="grid"></div>
+    </section>
+
+    <!-- USUARIOS -->
+    <section id="page-usuarios" class="page hidden">
+      <div class="page-header">
+        <h2>Usuarios</h2>
+        <button id="btn-new-user" class="btn">+ Nuevo usuario</button>
+      </div>
+      <div id="usuarios-list" class="grid"></div>
+    </section>
+
+    <!-- LOGIN / REGISTER (modal) -->
     <section id="page-login" class="page hidden">
-      <div class="auth-wrap">
-        <div class="auth-card" id="login-card">
-          <h2 style="font-family:Poppins, sans-serif;letter-spacing:6px;margin-top:0;color:#fff">INICIAR SESIÓN</h2>
-          <form id="form-login">
-            <div class="auth-row"><div class="icon-circle">👤</div><label class="field"><input id="login-email" placeholder="USUARIO (correo)" type="email" required /></label></div>
-            <div class="auth-row"><div class="icon-circle">🔒</div><label class="field"><input id="login-pass" placeholder="CONTRASEÑA" type="password" required /></label></div>
-            <div style="display:flex;justify-content:space-between;align-items:center;margin-top:6px;color:#f1e9df">
-              <label style="font-size:14px"><input id="remember" type="checkbox" /> Recordar</label>
-              <a class="link-small" id="forgot-link">Olvidaste la contraseña?</a>
-            </div>
-            <div class="auth-actions"><button class="btn primary" type="submit">INICIAR SESIÓN</button><a id="to-register" class="link-small">O REGISTRARSE</a></div>
-          </form>
-        </div>
-      </div>
-    </section>
+      <div class="auth-card">
+        <h2>Iniciar sesión</h2>
+        <form id="form-login">
+          <label>Email<input id="login-email" type="email" required/></label>
+          <label>Contraseña<input id="login-pass" type="password" required/></label>
+          <div class="row">
+            <button type="submit" class="btn primary">Entrar</button>
+            <button type="button" id="go-register" class="btn">Registrarse</button>
+          </div>
+        </form>
 
-    <section id="page-register" class="page hidden">
-      <div class="auth-wrap">
-        <div class="auth-card" id="register-card">
-          <h2 style="font-family:Poppins, sans-serif;letter-spacing:6px;margin-top:0;color:#fff">REGISTRARSE</h2>
-          <form id="form-register">
-            <div class="auth-row"><div class="icon-circle">👤</div><label class="field"><input id="reg-nombre" placeholder="NOMBRE" type="text" required /></label></div>
-            <div class="auth-row"><div class="icon-circle">📧</div><label class="field"><input id="reg-email" placeholder="CORREO ELECTRÓNICO" type="email" required /></label></div>
-            <div class="auth-row"><div class="icon-circle">🔒</div><label class="field"><input id="reg-pass" placeholder="CONTRASEÑA" type="password" required /></label><label class="field"><input id="reg-pass2" placeholder="CONFIRMAR" type="password" required /></label></div>
-            <div class="auth-actions"><button class="btn primary" type="submit">CREAR CUENTA</button><a id="to-login" class="link-small">O INICIAR SESIÓN</a></div>
-          </form>
-        </div>
+        <hr />
+
+        <h2>Registrar</h2>
+        <form id="form-register">
+          <label>Nombre<input id="reg-nombre" /></label>
+          <label>Email<input id="reg-email" type="email" /></label>
+          <label>Contraseña<input id="reg-pass" type="password" /></label>
+          <button class="btn" type="submit">Crear cuenta</button>
+        </form>
       </div>
     </section>
 
   </main>
 
-  <footer style="text-align:center;padding:20px;color:#7b6b5d">GoFly - Proyecto • Laura Vargas</footer>
+  <footer class="site-footer">
+    <p>GoFly - Proyecto de viaje • Laura Vargas</p>
+  </footer>
 
-<script src="/app.js"></script>
+  <script src="/app.js"></script>
 </body>
 </html>
