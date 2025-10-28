@@ -1,5 +1,4 @@
-console.log("Usando base de datos simulada (modo demostración)");
-
+console.log("Usando base de datos simulada (modo demostración con usuarios activos)");
 
 const productos = [
   { id: 1, nombre: "Torre Eiffel", descripcion: "El ícono de París, Francia", precio: 450, pais: "Francia" },
@@ -21,8 +20,9 @@ const usuarios = [
   { id: 2, nombre: "Juan Pérez", email: "juan@example.com", password: "123456" },
 ];
 
-
 const db = {
+  usuarios,
+  productos,
   promise: () => ({
     execute: async (query, params) => {
       // Productos
@@ -40,16 +40,16 @@ const db = {
       }
 
       if (query.includes("FROM usuarios")) return [[...usuarios]];
+
       if (query.includes("INSERT INTO usuarios")) {
-        const nuevo = { id: usuarios.length + 1, nombre: params[1], email: params[2], password: params[3] };
+        const nuevo = {
+          id: usuarios.length + 1,
+          nombre: params[0],
+          email: params[1],
+          password: params[2],
+        };
         usuarios.push(nuevo);
         return [{ insertId: nuevo.id }];
-      }
-      if (query.includes("DELETE FROM usuarios")) {
-        const id = params[0];
-        const index = usuarios.findIndex(u => u.id == id);
-        if (index >= 0) usuarios.splice(index, 1);
-        return [{}];
       }
 
       return [[[]]];
